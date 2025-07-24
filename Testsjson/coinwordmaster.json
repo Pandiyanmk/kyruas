@@ -1,0 +1,492 @@
+[
+    {
+      "question_id": 1,
+      "game_id": 101,
+      "level": 1,
+      "difficulty": "simple",
+      "interest_id": 201,
+      "gamecenterletter": "C",
+      "gameoutterletter": "O,M,P,U,T,E",
+      "game_ans":[
+      "CUTE",
+      "CUT"],
+      "score": 10,
+       "interest":"Robotics"
+    },
+    {
+        "question_id": 2,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "simple",
+        "interest_id": 201,
+        "gamecenterletter": "A",
+        "gameoutterletter": "T,Y,U,I,T,S",
+        "game_ans": ["SAIT",
+        "SAT",
+        "SAY"], 
+        "score": 30,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 3,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "simple",
+        "interest_id": 201,
+        "gamecenterletter": "D",
+        "gameoutterletter": "R,T,S,D,F,R",
+        "game_ans": ["Dart",
+        "Star",
+        "Sad"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 4,
+        "game_id": 101,
+        "level": 2,
+        "difficulty": "simple",
+        "interest_id": 201,
+        "gamecenterletter": "R",
+        "gameoutterletter": "I,V,E,R,S,T",
+        "game_ans": [
+          "Drive",
+          "Dive",
+          "River",
+          "Driver"
+        ],
+        "score": 20,
+         "interest":"Robotics"
+      },  
+      {
+        "question_id": 5,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "medium",
+        "interest_id": 201,
+        "gamecenterletter": "R",
+        "gameoutterletter": "T,T,S,D,F,R",
+        "game_ans": ["Dart",
+        "Star",
+        "Sad"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 6,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "medium",
+        "interest_id": 201,
+        "gamecenterletter": "T",
+        "gameoutterletter": "R,T,S,D,F,R",
+        "game_ans": [
+        "Fad",
+        "Fat",
+        "Fast",
+        "Tad"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 7,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "medium",
+        "interest_id": 201,
+        "gamecenterletter": "D",
+        "gameoutterletter": "R,T,S,T,F,R",
+        "game_ans": [
+        "Fad",
+        "Fat"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 8,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "complex",
+        "interest_id": 201,
+        "gamecenterletter": "S",
+        "gameoutterletter": "R,T,T,D,F,R",
+        "game_ans": [
+        "Fad",
+        "Fat"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 9,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "complex",
+        "interest_id": 201,
+        "gamecenterletter": "F",
+        "gameoutterletter": "R,T,S,D,T,R",
+        "game_ans": [
+        "Fad",
+        "Fat"],
+        "score": 10,
+         "interest":"Robotics"
+      },{
+        "question_id": 10,
+        "game_id": 101,
+        "level": 1,
+        "difficulty": "complex",
+        "interest_id": 201,
+        "gamecenterletter": "V",
+        "gameoutterletter": "R,T,S,D,T,F",
+        "game_ans": [
+        "Fad",
+        "Fat"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 11,
+        "game_id": 101, 
+        "level": 2,
+        "difficulty":"simple",
+        "interest_id": 201,
+        "gamecenterletter": "C",
+        "gameoutterletter": "O,M,P,U,T,E",
+        "game_ans":[
+        "Cute",
+        "Cut"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 14,
+        "game_id": 101,
+        "level": 2,
+        "difficulty": "simple",
+        "interest_id": 201,
+        "gamecenterletter": "F",
+        "gameoutterletter": "R,T,S,D,D,R",
+        "game_ans": ["Dart",
+        "Star",
+        "Sad"],
+        "score": 10,
+         "interest":"Robotics"
+      },
+      {
+        "question_id": 12,
+        "game_id": 101,
+        "level": 2,
+        "difficulty":"complex",
+        "interest_id": 201,
+        "gamecenterletter": "G",
+        "gameoutterletter": "O,M,P,U,T,E",
+        "game_ans":[
+        "Cute",
+        "Cut"],
+        "score": 10,
+         "interest":"Robotics"
+      }, {
+          "question_id": 13,
+          "game_id": 101,
+          "level": 2,
+          "difficulty": "complex",
+          "interest_id": 201,
+          "gamecenterletter": "H",
+          "gameoutterletter": "U,M,A,N,S,T",
+          "game_ans": [
+            "Man",
+            "Hum",
+            "Human"
+          ], 
+          "score": 15,
+           "interest":"Robotics"
+        },
+        
+        {
+          "question_id": 15,
+          "game_id": 101,
+          "level": 2,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "P",
+          "gameoutterletter": "R,O,G,R,A,M",
+          "game_ans": [
+            "Program",
+            "Pram",
+            "Ramp"
+          ],
+          "score": 25,
+           "interest":"Robotics"
+        },{
+          "question_id": 16,
+          "game_id": 101,
+          "level": 2,
+          "difficulty": "complex",
+          "interest_id": 201,
+          "gamecenterletter": "S",
+          "gameoutterletter": "C,I,E,N,C,E",
+          "game_ans": [
+            "Science",
+            "Nice",
+            "Ice"
+          ],
+          "score": 30,
+           "interest":"Robotics"
+        },
+        {
+          "question_id": 17,
+          "game_id": 101,
+          "level": 2,
+          "difficulty": "medium",
+          "interest_id": 201,
+          "gamecenterletter": "B",
+          "gameoutterletter": "U,I,L,D,I,N,G",
+          "game_ans": [
+            "Bind",
+            "Build"
+          ],
+          "score": 35,
+           "interest":"Robotics"
+        },
+        {
+          "question_id": 18,
+          "game_id": 101,
+          "level": 3,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "E",
+          "gameoutterletter": "L,E,C,T,R,I,C",
+          "game_ans": [
+            "Electric",
+            "Tree",
+            "Eel"
+          ],
+          "score": 40,
+           "interest":"Robotics"
+        },
+        {
+
+          "question_id": 19,
+          "game_id": 101,
+          "level": 2,
+          "difficulty": "complex",
+          "interest_id": 201,
+          "gamecenterletter": "M",
+          "gameoutterletter": "E,C,H,A,N,I,C",
+          "game_ans": [
+            "Mechanic",
+            "Manic",
+            "Chime"
+          ],
+          "score": 45,
+           "interest":"Robotics"
+        },
+        {
+          "question_id": 20,
+          "game_id": 101,
+          "level": 2,
+          "difficulty": "medium",
+          "interest_id": 201,
+          "gamecenterletter": "L",
+          "gameoutterletter": "A,N,G,U,A,G,E",
+          "game_ans": [
+            "Language",
+            "Lace", 
+            "Angel"
+          ],
+          "score": 50,
+           "interest":"Robotics"
+        },
+        {
+          "question_id": 21,
+          "game_id": 101,
+          "level": 3,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "O",
+          "gameoutterletter": "P,E,R,A,T,I,O,N",
+          "game_ans": [
+            "Operation",
+            "Option",
+            "Ration"
+          ],
+          "score": 55,
+           "interest":"Robotics"
+        },
+        {
+          "question_id": 22,
+          "game_id": 101,
+          "level": 1,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "L",
+          "gameoutterletter": "ANGUAGE",
+          "game_ans": [
+            "Language",
+            "Lace", 
+            "Angel"
+          ],
+          "score": 50,
+           "interest":"Art"
+        }, 
+        
+        {
+          "question_id": 23,
+          "game_id": 101,
+          "level": 1,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "D",
+          "gameoutterletter": "RTSDFR",
+          "game_ans": ["Dart",
+          "Star",
+          "Sad"],
+          "score": 10,
+           "interest":"Travel"
+        },
+        {
+          "question_id": 24,
+          "game_id": 101,
+          "level": 1,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "லஂ",
+          "gameoutterletter": "நா,கி,வ,சொ,கா",
+          "game_ans":["காவல்","கால்","சொல்"],
+          "score": 10,
+          "interest":"Tamil"
+        }
+        ,  {
+          "question_id": 25,
+          "game_id": 101,
+          "level": 1,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "ன",
+          "gameoutterletter": "சி,வ,வா,மஂ,தா,ம",
+          "game_ans":[
+          "தானமஂ","வானமஂ","மனமஂ","சினமஂ"],
+          "score": 10,
+          "interest":"Tamil"
+        },
+        {
+          "question_id": 26,
+          "game_id": 101,
+          "level": 1,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "மை",
+          "gameoutterletter": "உ,ள,யஂ,ணஂ,வ",
+          "game_ans":["தாயஂமை" ,"உளமை" ,"உவமை", "வளமை"],
+          "score": 10,
+          "interest":"Tamil"
+        },
+        
+        {
+         "question_id": 27,
+          "game_id": 101,
+          "level": 1,
+          "difficulty": "simple",
+          "interest_id": 201,
+          "gamecenterletter": "க",
+          "gameoutterletter": "கூ,ச,டஂ,ட,ன,வு,மஂ",
+          "game_ans":["கனவு","கடஂடமஂ"],
+          "score": 10,
+          "interest":"Tamil"
+        },
+        {
+          "question_id": 28,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "simple",
+           "interest_id": 201,
+           "gamecenterletter": "லஂ",
+           "gameoutterletter": "க,பா,சொ,வி,தோ,கா",
+           "game_ans":["கலஂ,பாலஂ,சொலஂ,விலஂ,தோலஂ"],
+           "score": 10,
+           "interest":"Tamil"
+         },
+         {
+          "question_id": 29,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "medium",
+           "interest_id": 201,
+           "gamecenterletter": "ளஂ",
+           "gameoutterletter": "தே,நா,தா,வா,தூ,மு",
+           "game_ans":["நாளஂ","வாளஂ","தேளஂ"],
+           "score": 10,
+           "interest":"Tamil"
+         },
+         {
+          "question_id":30,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "medium",
+           "interest_id": 201,
+           "gamecenterletter": "டு",
+           "gameoutterletter": "தே,நா,கூ,பா,ஓ,கா",
+           "game_ans":["தேடு","நாடு","காடு","ஓடு","பாடு"],
+           "score": 10,
+           "interest":"Tamil"
+         },
+         {
+          "question_id":31,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "medium",
+           "interest_id": 201,
+           "gamecenterletter": "ணஂ",
+           "gameoutterletter": "ஆ,ச,ப,உ,பெ,ம,க",
+           "game_ans":["ஆணஂ","கணஂ","பெணஂ","மணஂ"],
+           "score": 10,
+           "interest":"Tamil"
+         },
+         {
+          "question_id":33,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "complex",
+           "interest_id": 201,
+           "gamecenterletter": "றை",
+           "gameoutterletter": "சி,ப,ம,இ,மு,பா",
+           "game_ans":["சிறை","பறை","இறை","பாறை","முறை","மறை"],
+           "score": 10,
+           "interest":"Tamil"
+         },{
+          "question_id":34,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "complex",
+           "interest_id": 201,
+           "gamecenterletter": "ரை",
+           "gameoutterletter": "நா,வா,கீ,அ,க,உ",
+           "game_ans":["அரை","உரை","கீரை","நாரை","கரை"],
+           "score": 10,
+           "interest":"Tamil"
+         },
+        {
+          "question_id":35,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "complex",
+           "interest_id": 201,
+           "gamecenterletter": "டை",
+           "gameoutterletter": "ப,உ,மே,கா,ஓ,எ",
+           "game_ans":["படை","உடை","எடை","ஓடை","மேடை"],
+           "score": 10,
+           "interest":"Tamil"
+         },
+         {
+          "question_id":36,
+           "game_id": 101,
+           "level": 1,
+           "difficulty": "complex",
+           "interest_id": 201,
+           "gamecenterletter": "டி",
+           "gameoutterletter": "ப,ந,மா,கு,பொ,ஆ",
+           "game_ans":["மாடி,ஆடி,குடி,பொடி"],
+           "score": 10,
+           "interest":"Tamil"
+         }
+
+  ]

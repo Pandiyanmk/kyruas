@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>311736070044-44i82n1poelulm5svt45ekgadtrscjkr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.311736070044-44i82n1poelulm5svt45ekgadtrscjkr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBkFlP-7827wViST4rxClX7go_3VINothU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>311736070044</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kyuras</string>
+	<key>PROJECT_ID</key>
+	<string>kyuras-f1c7c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kyuras-f1c7c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:311736070044:ios:ba7769b067ba6fa1496259</string>
+</dict>
+</plist>

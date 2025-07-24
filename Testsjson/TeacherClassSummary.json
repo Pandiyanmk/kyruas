@@ -1,0 +1,49 @@
+{
+    "status": "OK",
+    "message": "SUCCESS",
+    "ClassId": 2343,
+    "ClassName": "3A",
+    "TotalEnrolledHomeworks": 7,
+    "TotalPendingSubmission": 2,
+    "TotalTurnedInHomeworks": 2,
+    "TotalGradedHomeworks":3,
+    "ClassHomeWorksToGrade":
+    {
+       "NoOfHomeWorks":1,
+       "ClassHomeWorkDetails":
+       [
+            {
+             "HomeWorkId": 8765,
+             "HomeWorkName": "Conversation",
+             "NoOfStudents": 2 
+            }
+       ]                         
+    },
+    "ClassHomeWorks":
+    {
+       "NoOfHomeWorks":1,
+       "ClassHomeWorkDetails":
+       [
+            {
+             "HomeWorkId": 8765,
+             "HomeWorkName": "Conversation",
+             "Status": "Yet to Start"
+            }
+       ]                         
+    },
+    "ClassStudentDetails":
+    {
+            "NoOfStudents": 2,
+            "Students":
+            [
+                    {
+                      "StudentId":4546,
+                      "StudentName": "Chandru"        
+                    },
+                    {
+                      "StudentId":4516,
+                      "StudentName": "Sekar"        
+                    }
+            ]
+    }
+}

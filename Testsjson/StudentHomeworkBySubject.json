@@ -1,0 +1,65 @@
+{
+    "status": "OK",
+    "message": "SUCCESS",
+    "ClassId": 2678,
+    "ClassName": "3A",
+    "SubjectId": 2345,
+    "SubjectName": "Tamil",
+    "TotalEnrolledHomeworks": 7,
+    "TotalPendingHomeWorks": 3,
+    "TotalTurnedInHomeworks": 2,
+    "TotalGradedHomeworks": 2,
+    "PendingHomeWorks": {
+        "NoOfHomeworks": 3,
+        "HomeWorks": [
+            {
+                "HomeWorkId": 1234,
+                "HomeWorkName": "Conversation",
+                "Status": "Returned",
+                "ActiveOrOverDue": "OverDue"
+            },
+            {
+                "HomeWorkId": 2345,
+                "HomeWorkName": "Essay Writing",
+                "Status": "Pending",
+                "ActiveOrOverDue": "Active"
+            },
+            {
+                "HomeWorkId": 2354,
+                "HomeWorkName": "Comprehension",
+                "Status": "Draft",
+                "ActiveOrOverDue": "Active"
+            }
+        ]
+    },
+    "TurnedInHomeWorks": {
+        "NoOfHomeworks": 2,
+        "HomeWorks": [
+            {
+                "HomeWorkId": 2341,
+                "HomeWorkName": "Conversation",
+                "Status": "Submitted"
+            },
+            {
+                "HomeWorkId": 2456,
+                "HomeWorkName": "Essay Writing",
+                "Status": "Submitted"
+            }
+        ]
+    },
+    "GradedHomeWorks": {
+        "NoOfHomeworks": 2,
+        "HomeWorks": [
+            {
+                "HomeWorkId": 1284,
+                "HomeWorkName": "Conversation",
+                "Status": "Graded"
+            },
+            {
+                "HomeWorkId": 2745,
+                "HomeWorkName": "Essay Writing",
+                "Status": "Graded"
+            }
+        ]
+    }
+}

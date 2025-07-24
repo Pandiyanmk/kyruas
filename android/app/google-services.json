@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "311736070044",
+    "project_id": "kyuras-f1c7c",
+    "storage_bucket": "kyuras-f1c7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311736070044:android:3c86bab7f458da56496259",
+        "android_client_info": {
+          "package_name": "com.banyanpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311736070044-eq1evkd0ll9hsiq1cr2n9pob3i74s8ot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.banyanpro",
+            "certificate_hash": "f240b9fc7f187ad832ed13203815a22688d0e880"
+          }
+        },
+        {
+          "client_id": "311736070044-8j39qduc4r4j8v5l2h8jo7dl9t55pcqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALB9fBVGkfd7rWD23zErzjPrkpIoEN82s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311736070044-8j39qduc4r4j8v5l2h8jo7dl9t55pcqr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "311736070044-44i82n1poelulm5svt45ekgadtrscjkr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.banyanpro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

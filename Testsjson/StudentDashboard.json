@@ -1,0 +1,49 @@
+{
+        "status": "OK",
+        "message": "SUCCESS",
+        "ClassId": 2678,
+        "ClassName": "3A",
+        "PendingHomeWorks": {
+                "NoOfHomeworks": 3,
+                "HomeWorks": [
+                        {
+                                "SubjectId": 1234,
+                                "HomeWorkId": 1234,
+                                "HomeWorkName": "Conversation",
+                                "Status": "Returned",
+                                "ActiveOrOverDue": "OverDue"
+                        },
+                        {
+                                "SubjectId": 1234,
+                                "HomeWorkId": 2345,
+                                "HomeWorkName": "Essay Writing",
+                                "Status": "Pending",
+                                "ActiveOrOverDue": "Active"
+                        },
+                        {
+                                "SubjectId": 1234,
+                                "HomeWorkId": 2354,
+                                "HomeWorkName": "Comprehension",
+                                "Status": "Draft",
+                                "ActiveOrOverDue": "Active"
+                        }
+                ]
+        },
+        "MySubjects": {
+                "NoOfSubjects": 3,
+                "Subjects": [
+                        {
+                                "SubjectId": 2343,
+                                "SubjectName": "Tamil - Vocabulary"
+                        },
+                        {
+                                "SubjectId": 2333,
+                                "SubjectName": "Tamil - Seyul"
+                        },
+                        {
+                                "SubjectId": 2335,
+                                "SubjectName": "Tamil - Elakanum"
+                        }
+                ]
+        }
+}

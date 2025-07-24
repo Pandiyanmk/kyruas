@@ -1,0 +1,64 @@
+{
+    "status": "OK",
+    "message": "SUCCESS",
+    "ClassId": 2343,
+    "ClassName": "3A",
+    "StudentId": 1234,
+    "StudentName": "John Doe",
+    "PendingHomeworks": {
+            "NoOfHomeWorks": 3,
+            "HomeWorks": [
+                    {
+                            "HomeWorkId": 2343,
+                            "HomeWorkName": "Conversation"
+                    },
+                    {
+                            "HomeWorkId": 5453,
+                            "HomeWorkName": "Essay Writing"
+                    },
+                    {
+                            "HomeWorkId": 1253,
+                            "HomeWorkName": "Conversation"
+                    }
+            ]
+
+    },
+    "ReturnedHomeworks": {
+            "NoOfHomeWorks": 1,
+            "HomeWorks": 
+            [
+                    {
+                            "HomeWorkId": 1256,
+                            "HomeWorkName": "Conversation"
+                    }
+            ]
+    },
+    "TurnedInHomeworks": {
+            "NoOfHomeWorks": 2,
+            "HomeWorks": [{
+                            "HomeWorkId": 1773,
+                            "HomeWorkName": "Conversation"
+                    },
+                    {
+                            "HomeWorkId": 8057,
+                            "HomeWorkName": "Essay Writing"
+                    }
+            ]
+
+    },
+    "GradedHomeworks": {
+            "NoOfHomeWorks": 2,
+            "HomeWorks": [{
+                            "HomeWorkId": 4612,
+                            "HomeWorkName": "Conversation"
+                    },
+                    {
+                            "HomeWorkId": 8676,
+                            "HomeWorkName": "Essay Writing"
+                    }
+            ]
+
+    }
+
+}
+
