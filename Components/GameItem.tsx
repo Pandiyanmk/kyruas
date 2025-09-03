@@ -546,7 +546,7 @@ export const HomeWorkDueItem = ({ item, bgColor, onClick }) => {
                 justifyContent: 'space-between', alignItems: 'center', alignContent: 'space-between'
             }]}
         >
-            <View style={{ width: '100%', padding: 2, justifyContent: 'center', alignItems: 'center',flex: 1}}>
+            <View style={{ width: '100%', padding: 2, justifyContent: 'center', alignItems: 'center', flex: 1 }}>
                 <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: 'Roboto', fontSize: RFValue(11), textAlign: 'center', }} numberOfLines={1}>{item.ClassName} </Text>
                 <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: fontFamily.robotoRegular, fontSize: RFValue(12), textAlign: 'center' }} numberOfLines={2}>{item.HomeWorkName}</Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: "100%", paddingHorizontal: 4, marginBottom: 2, alignItems: "center" }}>
@@ -576,13 +576,13 @@ export const HomeWorkToGradeItem = ({ item, bgColor, onClick }) => {
         >
             <View style={{ width: '100%', padding: 2, height: 100, justifyContent: 'space-between', alignItems: 'center', alignContent: 'space-between' }}>
                 <View style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%', flexDirection: 'row', paddingHorizontal: 4 }}>
-                    <Text style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 14, textAlign: 'center' }} numberOfLines={1}>{''}</Text>
-                    <Text style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 13, textAlign: 'right', }} numberOfLines={1}>{item.ClassName} </Text>
+                    <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 14, textAlign: 'center' }} numberOfLines={1}>{''}</Text>
+                    <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 13, textAlign: 'right', }} numberOfLines={1}>{item.ClassName} </Text>
                 </View>
-                <Text style={{ color: colors.black, fontFamily: fontFamily.robotoRegular, fontSize: 14, textAlign: 'center' }} numberOfLines={3}>{item.HomeWorkName}</Text>
+                <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: fontFamily.robotoRegular, fontSize: 14, textAlign: 'center' }} numberOfLines={3}>{item.HomeWorkName}</Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: "100%", paddingHorizontal: 4, marginBottom: 4, alignItems: "center" }}>
                     {refreshData.isTeacher ? <Text></Text> : null}
-                    <Text style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 13 }}>{item.NoofStudentsToGrade ? item.NoofStudentsToGrade : ''}</Text>
+                    <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 13 }}>{item.NoofStudentsToGrade ? item.NoofStudentsToGrade : ''}</Text>
                     {/* <Text style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 14, }}>{item.ActiveOrOverDue}</Text> */}
                     {refreshData.isTeacher == false ? <View style={{ padding: 6, backgroundColor: setColor(item.ActiveOrOverDue) }} /> : null}
                 </View>
