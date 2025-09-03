@@ -338,7 +338,7 @@ const handleRadioPress = (index, aliasId, decryptedPassword) => {
                 <Text style={{ color: colors.banyanprocolor }}>Banyan</Text>
                 <Text style={{ color: colors.banyanprocoloryellow,paddingTop: -5}}>pro</Text> */}
                 <View style={[style.appNameStyle, style.fullWidthWithCenter, { marginTop: 30 }]}>
-                <Image source={require('../../assets/images/newbanyan-pro.png')} style={style.imageStyle}  />
+                <Image source={require('../../assets/images/itmslogo.jpeg')} style={style.imageStyle}  />
                 </View>
             {/* </Text> */}
                 <Text style={[style.appNameStyles, style.for18, { marginTop: 50 }]}>{strings.hey_login_now}</Text>

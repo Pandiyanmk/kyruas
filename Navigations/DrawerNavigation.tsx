@@ -11,6 +11,8 @@ import { MyBottomBar } from "./BottomNavigation";
 import { strings } from "../Localization";
 import { colors } from "../Values/AppColores";
 import { CustomDrawer } from "../Components/DrawerContent";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { DashboardScreen } from "../Screens/home/DashboardScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -43,7 +45,7 @@ export function DrawerNavigation() {
             headerTitle: strings.appName,
             drawerLabel: "Home"
         }} /> */}
-        <Drawer.Screen name={routes.drawer_screen} component={MyBottomBar} options={{
+        <Drawer.Screen name={routes.drawer_screen} component={DashboardScreen} options={{
             headerTitle: strings.appName,
             drawerLabel: "Dashboard"
         }} />

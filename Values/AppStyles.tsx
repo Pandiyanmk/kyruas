@@ -267,8 +267,8 @@ export const style = () => ({
     alignItems: 'center',
     },
     imageStyle: {
-        width: 269, // Set the width of your image
-        height: 70, // Set the height of your image
+        width: 150, // Set the width of your image
+        height: 150, // Set the height of your image
         // Add other image styles as needed
       },
     rowStyle: {

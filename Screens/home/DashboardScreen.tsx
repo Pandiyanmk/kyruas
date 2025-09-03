@@ -5,13 +5,13 @@
  */
 import { FlatList, Image, Text, View } from "react-native"
 import { strings } from "../../Localization"
-import {  colorScheme, style as getStyles } from "../../Values/AppStyles"
+import { colorScheme, style as getStyles } from "../../Values/AppStyles"
 import { memo, useEffect, useState } from "react"
 import { routes } from "../../Values/Routes"
 import { ImageSlider } from "../../Components/ImageSlider"
 import { boared, courseDetails, fontFamily, getBgColor, images, localEnum, refreshData } from "../../store/LocalDataStore"
 import { ItemWithHorizontalList } from "../game/GameLandingScreen"
-import { GameItem, HomeWorkDueItem, HomeWorkToGradeItem,AllItemInflate } from "../../Components/GameItem"
+import { GameItem, HomeWorkDueItem, HomeWorkToGradeItem, AllItemInflate } from "../../Components/GameItem"
 import { RetryWhenErrorOccur, TitleWithForward } from "../../Components/TitleWithForward"
 import { getIsTeacher } from "../../store/AudioData"
 import { Bar } from "react-native-progress"
@@ -49,9 +49,9 @@ export const DashboardScreen = ({ navigation }) => {
         { title: 'Homework Upcoming ( Next 2 Weeks )', type: localEnum.homework_upcoming, list: [], errorMessage: "No upcoming homeworks" },
     ];
 
- {/*25/03/2024 - Pravin  */}
-{/* This functionality is planned for an upcoming build, so this particular build hides the components related to it. hide 25/03/2024 */}
-// Hide the course and quiz section for the student module
+    {/*25/03/2024 - Pravin  */ }
+    {/* This functionality is planned for an upcoming build, so this particular build hides the components related to it. hide 25/03/2024 */ }
+    // Hide the course and quiz section for the student module
     const studentColumn = [
         {
             title: 'Homework to be turned in', type: localEnum.student_by_subject_homework, list: [],
@@ -71,7 +71,7 @@ export const DashboardScreen = ({ navigation }) => {
 
         // },
 
-        
+
         // {
         //     title: 'Quiz', type: localEnum.quiz, list: [
         //         { work: "", class: "3A", color: '', title: "Daily" },
@@ -94,7 +94,7 @@ export const DashboardScreen = ({ navigation }) => {
     const [teacherData, setTeacherData] = useState(teacherColums)
     const [studentData, setStudentData] = useState(studentColumn)
     const [refresh, setRefresh] = useState(false)
-    
+
 
     const isFocused = useIsFocused()
 
@@ -133,7 +133,7 @@ export const DashboardScreen = ({ navigation }) => {
                 setStudentData(studentData)
             }
             setData(response)
-            console.log("student ",response.data.PendingHomeWorks.HomeWorks);
+            console.log("student ", response.data.PendingHomeWorks.HomeWorks);
             setLoading(false)
         })
     }
@@ -163,108 +163,114 @@ export const DashboardScreen = ({ navigation }) => {
     }
 
 
-    return (data && data.isSuccess && !loading) ? <View style={[style.viewBox, { paddingVertical: 10, paddingHorizontal: 0 }]}>
-        <FlatList
-            data={teacher ? teacherData : studentData}
-            renderItem={({ item, index }) => (
-                <DashItemWithHorizontalList items={item} onClick={(type: number, dataItem: any) => {
-                    switch (item.type) {
-                        case localEnum.class_summary: {
+    return (data && data.isSuccess && !loading) ?
+        <View style={[style.viewBox, { paddingVertical: 10, paddingHorizontal: 0 }]}>
+            <FlatList
+                data={teacher ? teacherData : studentData}
+                renderItem={({ item, index }) => (
+                    <DashItemWithHorizontalList items={item} onClick={(type: number, dataItem: any) => {
+                        switch (item.type) {
+                            case localEnum.class_summary: {
 
-                            if (type == 1) {
-                                navigation.navigate(routes.all_file_screen,
-                                    { screen: routes.class_summary_screen, data: item })
-                            } else {
-                                navigation.navigate(routes.class_summary_screen, { id: dataItem.ClassId })
+                                if (type == 1) {
+                                    navigation.navigate(routes.all_file_screen,
+                                        { screen: routes.class_summary_screen, data: item })
+                                } else {
+                                    navigation.navigate(routes.class_summary_screen, { id: dataItem.ClassId })
+                                }
+                                break
                             }
-                            break
-                        }
-                        case localEnum.course: {
-                            if (type == 1) {
-                                navigation.navigate(routes.course_landing_screen)
-                            } else {
-                                navigation.navigate(routes.course_detail_screen)
+                            case localEnum.course: {
+                                if (type == 1) {
+                                    navigation.navigate(routes.course_landing_screen)
+                                } else {
+                                    navigation.navigate(routes.course_detail_screen)
+                                }
+                                break
                             }
-                            break
-                        }
-                        case localEnum.student_by_subject_homework: {
-                            statusDynamicallyStudentUpdate(dataItem.Status)
+                            case localEnum.student_by_subject_homework: {
+                                statusDynamicallyStudentUpdate(dataItem.Status)
 
-                            if (type == 1) {
-                                navigation.navigate(routes.all_file_screen,
-                                    {
-                                        screen: routes.student_home_work_screen, data: item,
-                                        classId: data.data.ClassId
+                                if (type == 1) {
+                                    navigation.navigate(routes.all_file_screen,
+                                        {
+                                            screen: routes.student_home_work_screen, data: item,
+                                            classId: data.data.ClassId
+                                        })
+                                } else {
+                                    navigation.navigate(routes.student_home_work_screen, {
+                                        homeworkId: dataItem.HomeWorkId,
+                                        classId: data.data.ClassId,
+                                        subjectId: dataItem.SubjectId
                                     })
-                            } else {
-                                navigation.navigate(routes.student_home_work_screen, {
-                                    homeworkId: dataItem.HomeWorkId,
-                                    classId: data.data.ClassId,
-                                    subjectId: dataItem.SubjectId
-                                })
+                                }
+                                break
                             }
-                            break
+
+                            case localEnum.student_homework: {
+                                if (type == 1) {
+                                    navigation.navigate(routes.all_file_screen,
+                                        { screen: routes.homwwork_summary_sreen, data: item, classid: data.data.ClassId })
+                                } else {
+                                    navigation.navigate(routes.homwwork_summary_sreen, { id: dataItem.SubjectId, classid: data.data.ClassId })
+                                }
+
+                                break
+                            }
+                            case localEnum.quiz: {
+                                if (type == 1) {
+                                    navigation.navigate(routes.paymentScreen)
+                                } else {
+                                    navigation.navigate(routes.paymentScreen)
+                                }
+                                break
+                            }
+                            default:
+                                if (type == 1) {
+                                    navigation.navigate(routes.all_file_screen,
+                                        { screen: routes.home_work_details_screen, data: item })
+                                } else {
+                                    navigation.navigate(routes.home_work_details_screen, {
+                                        title: item.title,
+                                        isHomeworkUpcoming: item.type == localEnum.homework_upcoming, id: dataItem.HomeWorkId,
+                                        ClassId: dataItem.ClassId
+                                    })
+                                }
+
                         }
 
-                        case localEnum.student_homework: {
-                            if (type == 1) {
-                                navigation.navigate(routes.all_file_screen,
-                                    { screen: routes.homwwork_summary_sreen, data: item, classid: data.data.ClassId })
-                            } else {
-                                navigation.navigate(routes.homwwork_summary_sreen, { id: dataItem.SubjectId, classid: data.data.ClassId })
-                            }
+                    }} />
+                )}
+                ListHeaderComponent={() => <View>
+                    {/* <ImageSlider images={images} /> */}
+                    {/*25/03/2024 - Pravin  */}
+                    {/* This functionality is planned for an upcoming build, so this particular build hides the components related to it. hide 25/03/2024 */}
+                    {/* onPress={() => navigation.navigate(routes.leader_boared_screen)} added the student module is top */}
+                    {!teacher ? <TouchableOpacity >
+                        <View style={{
+                            borderRadius: 4, height: 90, justifyContent: 'center', alignItems: 'center',
+                            backgroundColor: colors.light_grey, marginHorizontal: 16
+                        }}>
+                            <Image source={boared}
+                                style={{
+                                    height: 80,
+                                    width: 80,
+                                }} />
+                        </View></TouchableOpacity> : null}
+                </View>}
+                keyExtractor={(item, index) => index.toString()}
+                showsVerticalScrollIndicator={false} // Optional: Hide horizontal scroll indicator
+            />
+            <Text style={[style.textStyle, style.absulates, {
+                fontFamily: 'Roboto',
+                fontSize: 12, width: '100%', textAlign: 'center'
+            }]}>{"Powered by banyanPro"}</Text>
+        </View> : loading ? <ProgressView /> : <RetryWhenErrorOccur title={data.data} onClick={() => {
+            setData({ isSuccess: false, data: undefined })
+            callAPI(teacher)
+        }} />
 
-                            break
-                        }
-                        case localEnum.quiz: {
-                            if (type == 1) {
-                                navigation.navigate(routes.paymentScreen)
-                            } else {
-                                navigation.navigate(routes.paymentScreen)
-                            }
-                            break
-                        }
-                        default:
-                            if (type == 1) {
-                                navigation.navigate(routes.all_file_screen,
-                                    { screen: routes.home_work_details_screen, data: item })
-                            } else {
-                                navigation.navigate(routes.home_work_details_screen, {
-                                    title: item.title,
-                                    isHomeworkUpcoming: item.type == localEnum.homework_upcoming, id: dataItem.HomeWorkId,
-                                    ClassId: dataItem.ClassId
-                                })
-                            }
 
-                    }
-
-                }} />
-            )}
-            ListHeaderComponent={() => <View>
-                {/* <ImageSlider images={images} /> */}
-                   {/*25/03/2024 - Pravin  */}
-        {/* This functionality is planned for an upcoming build, so this particular build hides the components related to it. hide 25/03/2024 */}
-        {/* onPress={() => navigation.navigate(routes.leader_boared_screen)} added the student module is top */}
-                {!teacher ? <TouchableOpacity >
-                    <View style={{
-                        borderRadius: 4, height: 90, justifyContent: 'center', alignItems: 'center',
-                        backgroundColor: colors.light_grey, marginHorizontal: 16
-                    }}>
-                        <Image source={boared}
-                            style={{
-                                height: 80,
-                                width: 80,
-                            }} />
-                    </View></TouchableOpacity> : null}
-            </View>}
-            keyExtractor={(item, index) => index.toString()}
-            showsVerticalScrollIndicator={false} // Optional: Hide horizontal scroll indicator
-        />
-
-    </View> : loading ? <ProgressView /> : <RetryWhenErrorOccur title={data.data} onClick={() => {
-        setData({ isSuccess: false, data: undefined })
-        callAPI(teacher)
-    }} />
 }
 
 
@@ -279,33 +285,34 @@ export const DashItemWithHorizontalList = ({ items, onClick }) => {
     }, [theme])
 
 
-    return <View style={{ paddingHorizontal: 16 }}>
-        <TitleWithForward title={items.title} isForward={items.list.length > 2} onClick={() => {
-            onClick(1, items)
+    return <View style={{ paddingHorizontal: 16, flex: 1 }}>
+        <View style={{ flex: 1 }}>
+            <TitleWithForward title={items.title} isForward={items.list.length > 2} onClick={() => {
+                onClick(1, items)
 
-            // navigation.navigate(routes.course_landing_screen)
+                // navigation.navigate(routes.course_landing_screen)
 
-        }} />
-        {items.list.length > 0 ? <FlatList
-            data={items.list}
-            renderItem={({ item, index }) => (
+            }} />
+            {items.list.length > 0 ? <FlatList
+                data={items.list}
+                renderItem={({ item, index }) => (
 
-                <Dynamic items={item} type={items.type} onClick={({ i, values }) => {
-                    onClick(2, item)
-                }} />
+                    <Dynamic items={item} type={items.type} onClick={({ i, values }) => {
+                        onClick(2, item)
+                    }} />
 
-            )}
-            keyExtractor={(item, index) => index.toString()}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false} // Optional: Hide horizontal scroll indicator
-        /> : <Text style={[style.textStyle, {
-            fontFamily: fontFamily.robotoBold, textAlign: 'center',
-            marginVertical: 20, color: colors.blue
-        }]}>
-            {items.errorMessage}
-        </Text>
-        }
-
+                )}
+                keyExtractor={(item, index) => index.toString()}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false} // Optional: Hide horizontal scroll indicator
+            /> : <Text style={[style.textStyle, {
+                fontFamily: fontFamily.robotoBold, textAlign: 'center',
+                marginVertical: 20, color: colors.blue
+            }]}>
+                {items.errorMessage}
+            </Text>
+            }
+        </View>
 
     </View>
 
@@ -313,11 +320,11 @@ export const DashItemWithHorizontalList = ({ items, onClick }) => {
 
 
 const Dynamic = memo(({ type, items, onClick }) => {
-    console.log("Dynamic",type)
-    
+    console.log("Dynamic", type)
+
     let bgColor = getBgColor(type)
-    console.log("color",bgColor)
-   // console.log("items",items)
+    console.log("color", bgColor)
+    // console.log("items",items)
     switch (type) {
         case localEnum.homework:
             return <HomeWorkDueItem item={items} bgColor={bgColor} onClick={() => {
@@ -344,10 +351,10 @@ const Dynamic = memo(({ type, items, onClick }) => {
             return <HomeWorkDueItem item={items} bgColor={bgColor} onClick={() => {
                 onClick(2, items)
             }} />
-            case "homework_to_be_turened_in":
-                return <HomeWorkDueItem item={items} bgColor={bgColor} onClick={() => {
-                    onClick(2, items)
-                }} />
+        case "homework_to_be_turened_in":
+            return <HomeWorkDueItem item={items} bgColor={bgColor} onClick={() => {
+                onClick(2, items)
+            }} />
         // case "":
         //     return <AllItemInflate color={colors.mint} item={items} onClick={() => {
         //         onClick(2, items) 

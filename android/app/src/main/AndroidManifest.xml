@@ -22,10 +22,10 @@
         android:name=".MainApplication"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/itmslogo"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/itmslogo"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         >

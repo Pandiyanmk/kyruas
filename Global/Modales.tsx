@@ -217,8 +217,8 @@ export const ReadMoreBottomSheet = ({ isShow = false, data, onClick }) => {
     const cleanedHtml = data
       .replace(/<elem>(.*?)<\/elem>/g, '$1') // Removing <elem> tags
       .replace(/style="background-color:#ffffff;"/g, '')
-      .replace(/style="color:#0000ff"/g, 'style="color:#FF9900"')
-      .replace(/style="color:#0000cd"/g, 'style="color:#FF9900"')
+      .replace(/0000ff/g, 'FF9900')
+      .replace(/0000cd/g, 'FF9900')
       .replace(/style="background: white;"/g, '')
       .replace(/style="background:lightgrey;"/g, '')
       .replace(/<li\s*style="[^"]*background:\s*white;?[^"]*"/g, '<li')
@@ -228,6 +228,7 @@ export const ReadMoreBottomSheet = ({ isShow = false, data, onClick }) => {
       .replace(/<p style=\"margin-left: 80px;\">/g, '<p style= margin-left: 40px;">');
 
       console.log("cleanedHtml", data)
+      console.log("cleanedHtmlup", cleanedHtml)
 
 
       const renderers = {

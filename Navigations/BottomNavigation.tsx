@@ -16,39 +16,16 @@ const Tab = createMaterialBottomTabNavigator();
 export const MyBottomBar = () => {
 
     return (
-        <Tab.Navigator  initialRouteName={routes.dashboard_screen} activeColor={colors.blue} inactiveColor='black'   barStyle={
+        <Tab.Navigator screenOptions={{
+            tabBarStyle: { display: 'none' } // Hide the tab bar
+        }} initialRouteName={routes.dashboard_screen} activeColor={colors.blue} inactiveColor='black' barStyle={
             {
                 backgroundColor: colors.lightBlue,
             }
-            
+
+
         } >
-            
-            <Tab.Screen name={routes.home_main_screen} component={HomeScreen} options={{
-                tabBarIcon: (tabInfo) => {
-                    return <Image source={require('../assets/images/home.png')}
-                        style={{ 
-                            height: 18,
-                            width: 18,
-                            tintColor: tabInfo.focused ? colors.blue : 'grey'
-                        }} />
-                },
-                tabBarLabel: 'Home'
-
-            }} />
-
-            {/* <Tab.Screen name={routes.search_screen} component={SearchScreen} options={{
-                tabBarIcon: (tabInfo) => {
-                    return <Image source={require('../assets/images/search.png')}
-                        style={{
-                            height: 18,
-                            width: 18,
-                            tintColor: tabInfo.focused ? colors.blue : 'grey'
-                        }} />
-                },
-                tabBarLabel: 'Search',
-            }} /> */}
-
-             <Tab.Screen name={routes.dashboard_screen} component={DashboardScreen} options={{
+            <Tab.Screen name={routes.dashboard_screen} component={DashboardScreen} options={{
                 tabBarIcon: (tabInfo) => {
                     return <Image source={require('../assets/images/dashboard.png')}
                         style={{

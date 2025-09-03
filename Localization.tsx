@@ -2,9 +2,9 @@
 
 export const strings = {
     googleApiKey: '311736070044-8j39qduc4r4j8v5l2h8jo7dl9t55pcqr.apps.googleusercontent.com',
-    appName: "BanyanPro",
+    appName: "ITA LMS",
     your_learning_companion: "Your Learning Companion",
-    powered_by_banyanpro: "Powered by Maantt",
+    powered_by_banyanpro: "Powered by banyanPro",
     hey_login_now: "Hey, \nLogin Now.",
     new_user: "New user, ",
     register_now: 'Register now',

@@ -115,17 +115,13 @@ let userName;
             props.navigation.closeDrawer();
         }} />
 
-        <IconWithText icon={gameDashboardIcon} onClick={() => {
-            props.navigation.navigate(routes.game_dashboard_screen)
-            props.navigation.closeDrawer();
-        }} title={strings.gameDashboard} />
 
         <IconWithText icon={logoutIcon} onClick={logout} title={strings.logout} />
 
         <Text style={[style.textStyle, style.absulates, {
             fontFamily: 'Roboto',
             fontSize: 12, width: '100%', textAlign: 'center'
-        }]}>{"Version: " + DeviceInfo.getVersion()}</Text>
+        }]}>{"Version: " + DeviceInfo.getVersion()+"\nPowered by banyanPro"}</Text>
 
     </View>
 }
