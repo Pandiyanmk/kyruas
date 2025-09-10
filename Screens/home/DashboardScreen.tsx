@@ -264,7 +264,7 @@ export const DashboardScreen = ({ navigation }) => {
             <Text style={[style.textStyle, style.absulates, {
                 fontFamily: 'Roboto',
                 fontSize: 12, width: '100%', textAlign: 'center'
-            }]}>{"Powered by banyanPro"}</Text>
+            }]}>{"Powered by BanyanPro"}</Text>
         </View> : loading ? <ProgressView /> : <RetryWhenErrorOccur title={data.data} onClick={() => {
             setData({ isSuccess: false, data: undefined })
             callAPI(teacher)

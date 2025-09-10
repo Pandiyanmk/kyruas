@@ -12,8 +12,8 @@ export const BASE_URL = (type = localEnum.development) => {
 }
 
 export const apiUrls = {
-     development: 'https://mobapp.banyanpro.com/api',
-   // development: 'http://192.168.1.8:98/api',
+    //  development: 'https://mobapp.banyanpro.com/api',
+    development: 'https://mobappuat.banyanpro.com/api',
     testing: '',
     production: ''
 }
@@ -22,10 +22,10 @@ export const modules = {
     userManagement: "/usermanagement/",
     teacherModule: "/teacherview",
     studentModule: '/studentview/',
-    gameModule:"/gameview"
+    gameModule: "/gameview"
 }
 
-export const userManagementModule = { 
+export const userManagementModule = {
     authentication: modules.userManagement + "Authenticate",
     login: modules.userManagement + "login",
     sendOtp: modules.userManagement + "SendORResendOTP",

@@ -574,9 +574,8 @@ export const HomeWorkToGradeItem = ({ item, bgColor, onClick }) => {
                 justifyContent: 'space-between', alignItems: 'center', alignContent: 'space-between'
             }]}
         >
-            <View style={{ width: '100%', padding: 2, height: 100, justifyContent: 'space-between', alignItems: 'center', alignContent: 'space-between' }}>
+            <View style={{ width: '100%', padding: 2, alignItems: 'center', alignContent: 'space-between' }}>
                 <View style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%', flexDirection: 'row', paddingHorizontal: 4 }}>
-                    <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 14, textAlign: 'center' }} numberOfLines={1}>{''}</Text>
                     <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: 'Roboto', fontSize: 13, textAlign: 'right', }} numberOfLines={1}>{item.ClassName} </Text>
                 </View>
                 <Text allowFontScaling={false} style={{ color: colors.black, fontFamily: fontFamily.robotoRegular, fontSize: 14, textAlign: 'center' }} numberOfLines={3}>{item.HomeWorkName}</Text>

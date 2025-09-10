@@ -8,7 +8,7 @@
 
 import { FlatList, Text, View } from "react-native"
 import { strings } from "../../Localization"
-import { colorScheme, style as getStyles} from "../../Values/AppStyles"
+import { colorScheme, style as getStyles } from "../../Values/AppStyles"
 import { useEffect, useState } from "react"
 import { routes } from "../../Values/Routes"
 import { ScrollView } from "react-native-gesture-handler"
@@ -18,15 +18,15 @@ import { colors } from "../../Values/AppColores"
 import { URI, fontFamily, localEnum, nonProfileList } from "../../store/LocalDataStore"
 import { NonInrolledInflate, StudentSubmissions, TeacherComments } from "../../Components/GameItem"
 import { AddCommantBottomSheet, MoreInfoBottomSheet, PlayAudioBottomSheet } from "../../Global/Modales"
-import { TextWithReadMore,TextWithReference } from "../teacher/HomeWorkDetail"
+import { TextWithReadMore, TextWithReference } from "../teacher/HomeWorkDetail"
 import { useSelector } from 'react-redux';
 export const StudentViewTaskDetailScreen = ({ navigation, route }) => {
     // Date 18/03/2024-Pravin
-// Previously, the transition from dark mode to light mode or vice versa wasn't functioning properly. 
-// Now, I've implemented Redux to handle this, so the app will automatically adjust its mode based on the mobile device's mode settings
+    // Previously, the transition from dark mode to light mode or vice versa wasn't functioning properly. 
+    // Now, I've implemented Redux to handle this, so the app will automatically adjust its mode based on the mobile device's mode settings
     let style;
-style = getStyles()
-const theme = useSelector(state => state.appState.theme)
+    style = getStyles()
+    const theme = useSelector(state => state.appState.theme)
 
     useEffect(() => {
         colorScheme(theme)
@@ -38,6 +38,7 @@ const theme = useSelector(state => state.appState.theme)
     const [conscore, consetScore] = useState("")
     const [redaingscore, redaingsetScore] = useState("")
     const [writtenscore, writtensetScore] = useState("")
+    const [projectScore, setProjectScore] = useState("")
     const [player, isPlayer] = useState(false)
     const [itemData, setItemData] = useState()
     const [show, isShow] = useState(false)
@@ -70,11 +71,12 @@ const theme = useSelector(state => state.appState.theme)
                 //     setStatusDate(data.ReturnedDetails.ReturnedDate)
                 // } else
                 if (data.HomeWorkStatus == localEnum.Graded) {
-                   
+
                     setScore(data.LastGradedScore + '/' + data.TotalHWMarks)
-                    consetScore(data.ConversationScore + '/' +data.HWCMaxMark)
-                    redaingsetScore(data.ReadingScore+ '/' +data.HWRMaxMark)
-                    writtensetScore(data.WrittenScore+ '/' +data.HWWMaxMark)
+                    consetScore(data.ConversationScore + '/' + data.HWCMaxMark)
+                    redaingsetScore(data.ReadingScore + '/' + data.HWRMaxMark)
+                    writtensetScore(data.WrittenScore + '/' + data.HWWMaxMark)
+                    setProjectScore(data.ProjectScore + '/' + data.HWProjMaxMark)
                     setComment(data.LastGradedComments)
                 }
                 // else if (data.Status == localEnum.Submitted) {
@@ -87,7 +89,7 @@ const theme = useSelector(state => state.appState.theme)
 
         return <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: colorScheme() === 'dark' ? 'black' : 'white', }}>
             <View style={[style.viewBox]}>
-{/* now change the Start Date is data.StartDate */}
+                {/* now change the Start Date is data.StartDate */}
                 <View style={[style.enrolledBckground, { alignContent: "center", justifyContent: "flex-start" }]}>
                     <Text style={[style.textStyle, style.textInput,
                     { paddingStart: 8, color: colors.black }]}>{data.HomeWorkName}</Text>
@@ -97,9 +99,9 @@ const theme = useSelector(state => state.appState.theme)
                         fontSize: 12
                     }]}>{`Start Date: - ${data.StartDate} ${dueDate}`}</Text>
 
-{Array.isArray(data?.Referencefiles) && data.Referencefiles.length > 0 && (
-  <TextWithReference margin={{ padding: 4 }} navigation={navigation} text={data.Referencefiles} color="black" />)}      
-  {/* Component to display homework description with read more/less functionality */}
+                    {Array.isArray(data?.Referencefiles) && data.Referencefiles.length > 0 && (
+                        <TextWithReference margin={{ padding: 4 }} navigation={navigation} text={data.Referencefiles} color="black" />)}
+                    {/* Component to display homework description with read more/less functionality */}
                     <TextWithReadMore margin={{ padding: 4 }} text={data.HomeWorkDescription} color="black" />
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
@@ -124,8 +126,8 @@ const theme = useSelector(state => state.appState.theme)
                     }} />
                     : null
                 }
- 
-    {data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
+
+                {data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
                     {/* <Text style={[style.textStyle, style.textInput, {
                     marginBottom: 9, marginTop: 20
                 }]}>{strings.comments}</Text>
@@ -142,7 +144,7 @@ const theme = useSelector(state => state.appState.theme)
                         }]}>{score}</Text>
                     </View></View> : null}
 
-                    {!data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
+                {!data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
                     {/* <Text style={[style.textStyle, style.textInput, {
                     marginBottom: 9, marginTop: 20
                 }]}>{strings.comments}</Text>
@@ -158,7 +160,7 @@ const theme = useSelector(state => state.appState.theme)
                             textAlign: "center", fontSize: 32, color: colors.blue, fontFamily: fontFamily.robotoBold,
                         }]}>{conscore}</Text>
                     </View></View> : null}
-                    {!data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
+                {!data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
                     {/* <Text style={[style.textStyle, style.textInput, {
                     marginBottom: 9, marginTop: 20
                 }]}>{strings.comments}</Text>
@@ -174,8 +176,8 @@ const theme = useSelector(state => state.appState.theme)
                             textAlign: "center", fontSize: 32, color: colors.blue, fontFamily: fontFamily.robotoBold,
                         }]}>{writtenscore}</Text>
                     </View></View> : null}
-                    
-                    {data.GradeHSCPFlag ===false && data.setFlag!=true && data.Status != localEnum.Submitted ? <View>
+
+                {data.GradeHSCPFlag === false && data.setFlag != true && data.Status != localEnum.Submitted ? <View>
                     {/* <Text style={[style.textStyle, style.textInput, {
                     marginBottom: 9, marginTop: 20
                 }]}>{strings.comments}</Text>
@@ -191,8 +193,25 @@ const theme = useSelector(state => state.appState.theme)
                             textAlign: "center", fontSize: 32, color: colors.blue, fontFamily: fontFamily.robotoBold,
                         }]}>{redaingscore}</Text>
                     </View></View> : null}
- 
-                    {!data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
+
+                {data.IsProjectWeek && data.Status != localEnum.Submitted ? <View>
+                    {/* <Text style={[style.textStyle, style.textInput, {
+                    marginBottom: 9, marginTop: 20
+                }]}>{strings.comments}</Text>
+                    <View style={[style.enrolledBckground, { height: 120, alignContent: "center", justifyContent: "center" }]}>
+                        <Text style={[style.textStyle, { height: 120, padding: 8, color: 'black' }]}>{comment}</Text>
+                    </View> */}
+                    <Text style={[style.textStyle, style.textInput, {
+                        marginBottom: 8, marginTop: 20
+                    }]}>Project Score</Text>
+                    <View style={[style.enrolledBckground, { height: 120, alignContent: "center", justifyContent: "center" }]}>
+                        <Text style={[style.textStyle,
+                        {
+                            textAlign: "center", fontSize: 32, color: colors.blue, fontFamily: fontFamily.robotoBold,
+                        }]}>{projectScore}</Text>
+                    </View></View> : null}
+
+                {!data.GradeHSCPFlag && data.Status != localEnum.Submitted ? <View>
                     {/* <Text style={[style.textStyle, style.textInput, {
                     marginBottom: 9, marginTop: 20
                 }]}>{strings.comments}</Text>
@@ -208,9 +227,9 @@ const theme = useSelector(state => state.appState.theme)
                             textAlign: "center", fontSize: 32, color: colors.blue, fontFamily: fontFamily.robotoBold,
                         }]}>{score}</Text>
                     </View></View> : null}
-                    
+
                 <MoreInfoBottomSheet isShow={moreInfo != -1} isTeacherComment={moreInfo == 1} data={
-                  data.HomeWorkHistory.SRGDetails
+                    data.HomeWorkHistory.SRGDetails
                 } onClick={() => {
                     setMoreInfo(-1)
                 }} />
@@ -234,8 +253,8 @@ const theme = useSelector(state => state.appState.theme)
                                     navigation.navigate(routes.image_view_screen, { url: URI })
                                 }
                                 else if (item.type == localEnum.txt) {
-                                   // navigation.navigate(routes.image_view_screen, { url: URI })
-                                   navigation.navigate(routes.text_screen, { url:URI })
+                                    // navigation.navigate(routes.image_view_screen, { url: URI })
+                                    navigation.navigate(routes.text_screen, { url: URI })
                                 }
                             } else if (type == 2) {
                                 isShow(true)
