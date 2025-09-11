@@ -117,7 +117,7 @@ export const TaskDetailScreen = ({ navigation, route }) => {
 
         console.log("audio files", audioData)
         const callSubmitData = (fileName: string) => {
-         
+
             var tempScore = 0
             var tempConversationScore = 0
             var tempProjectScore = 0
@@ -350,7 +350,7 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                     setError(prevError => ({ ...prevError, errorWritten: "" }));
                     tempWrittenScore = parseFloat(WrittenScore);
                 }
-                
+
 
                 if (data.IsProjectWeek) {
                     if (
@@ -406,11 +406,12 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                 ReadingScore: ReadingScore == "" ? 1 : tempReadingScore,
                 WrittenScore: WrittenScore == "" ? 1 : tempWrittenScore,
                 ProjectScore: projectScore == "" ? 0 : tempProjectScore,
+                IsProjectWeek: data.IsProjectWeek,
                 GradeHSCPFlag: data.GradeHSCPFlag,
                 setFlag: data.setFlag
             }
 
-            
+
             console.log("Dataed-Types----------------------------------", dataValues);
             setLoading(true)
             postAPICall(dataValues, TeacherModule.hWReviewByTeacher, true, (response: any) => {

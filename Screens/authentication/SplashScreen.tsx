@@ -52,7 +52,6 @@ export const SplashScreen = ({ navigation }) => {
             <View style={[style.appNameStyle, style.fullWidthWithCenter, { marginTop: 40 }]}>
                 <Image source={require('../../assets/images/itmslogoss.png')} style={style.imageStyle} />
                 </View>
-        <Text style={style.textStyle}>{strings.your_learning_companion}</Text>
         <Text style={[style.textStyle, style.bowerByTextStyle]}>{strings.powered_by_banyanpro}</Text>
     </View>
 }

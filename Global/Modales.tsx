@@ -4,9 +4,9 @@ import { colors } from "../Values/AppColores"
 import { CommonButton } from "./Buttons"
 import { CommonTextInput } from "./TextInputs"
 import { strings } from "../Localization"
-import { useEffect, useState,useCallback } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { validCheck } from "./Validations"
-import { localEnum, photo, upload, video,audioExtention,imageExtention,videoExtention} from "../store/LocalDataStore"
+import { localEnum, photo, upload, video, audioExtention, imageExtention, videoExtention } from "../store/LocalDataStore"
 import { ImageWithTextVerticle } from "../Components/TitleWithForward"
 import { AudioPlay, DatesCart, TeacherCommentCart } from "../Components/GameItem"
 import useBackHandler from "./BackHandler"
@@ -18,7 +18,7 @@ import RenderHtml from 'react-native-render-html';
 import { userInformation } from "../store/UserStorage"
 import { RadioButton } from 'react-native-paper';
 import { useSelector } from 'react-redux';
-import {   ReferenceFilesInflate  } from "../Components/GameItem"
+import { ReferenceFilesInflate } from "../Components/GameItem"
 import { routes } from "../Values/Routes"
 import { useFocusEffect } from '@react-navigation/native';
 // React Navigation Hook
@@ -40,7 +40,7 @@ export const ProgressView = () => {
     style = getStyles()
     return <View style={[style.centeredView, style.viewBox, { marginHorizontal: 0 }]}>
         <ActivityIndicator size={Platform.OS == "ios" ? "large" : 70} color={colors.blue} />
-        <Text style={[style.textStyle, {textAlign:'center'}]}>Loading...</Text>
+        <Text style={[style.textStyle, { textAlign: 'center' }]}>Loading...</Text>
 
     </View>
 }
@@ -49,7 +49,7 @@ export const GameprogressView = () => {
     style = getStyles()
     return <View style={[style.centeredView, style.viewBoxs, { marginHorizontal: 0 }]}>
         <ActivityIndicator size={Platform.OS == "ios" ? "large" : 70} color={colors.blue} />
-        <Text style={[style.textStyle, {textAlign:'center'}]}>Loading The Circle...</Text>
+        <Text style={[style.textStyle, { textAlign: 'center' }]}>Loading The Circle...</Text>
 
     </View>
 }
@@ -211,140 +211,148 @@ export const EditFileTitleBottomSheet = ({ isShow = false, title = "", onClick }
 export const ReadMoreBottomSheet = ({ isShow = false, data, onClick }) => {
     const style = getStyles();
     const handleOnRequest = () => {
-      onClick();
+        onClick();
     };
 
     const cleanedHtml = data
-      .replace(/<elem>(.*?)<\/elem>/g, '$1') // Removing <elem> tags
-      .replace(/style="background-color:#ffffff;"/g, '')
-      .replace(/0000ff/g, 'FF9900')
-      .replace(/0000cd/g, 'FF9900')
-      .replace(/style="background: white;"/g, '')
-      .replace(/style="background:lightgrey;"/g, '')
-      .replace(/<li\s*style="[^"]*background:\s*white;?[^"]*"/g, '<li')
-      .replace(/<p\s*style="[^"]*background:\s*white;?[^"]*"/g, '<p')
-      .replace(/<span\s*style="background:\s*white;?[^"]*">/g, '<span>')
-      .replace(/<p style="margin-left: 36pt;">/g, '<p style= margin-left: 40px;">')
-      .replace(/<p style=\"margin-left: 80px;\">/g, '<p style= margin-left: 40px;">');
+        .replace(/<\/?elem>/g, '')                 // remove <elem> wrapper
+        .replace(/([^:]\/)\/+/g, "$1")
+        .replace(/style="background-color:#ffffff;"/g, '')
+        .replace(/0000ff/g, 'FF9900')
+        .replace(/0000cd/g, 'FF9900')
+        .replace(/style="background: white;"/g, '')
+        .replace(/style="background:lightgrey;"/g, '')
+        .replace(/<li\s*style="[^"]*background:\s*white;?[^"]*"/g, '<li')
+        .replace(/<p\s*style="[^"]*background:\s*white;?[^"]*"/g, '<p')
+        .replace(/<span\s*style="background:\s*white;?[^"]*">/g, '<span>')
+        .replace(/<p style="margin-left: 36pt;">/g, '<p style= margin-left: 40px;">')
+        .replace(/<p style=\"margin-left: 80px;\">/g, '<p style= margin-left: 40px;">');
 
-      console.log("cleanedHtml", data)
-      console.log("cleanedHtmlup", cleanedHtml)
+    console.log("cleanedHtml", data)
+    console.log("cleanedHtmlup", cleanedHtml)
 
 
-      const renderers = {
+    const renderers = {
         img: ({ tnode }) => {
-          const { src, style } = tnode.attributes;
-      
-          // Default styles for responsive images
-          const imageStyle = {
-            maxWidth: '100%', // Full width of the container
-            height: 'auto',   // Maintain aspect ratio
-          };
-      
-          if (style) {
-            // Parse inline styles from the `style` attribute
-            const styleParts = style.split(';').filter(Boolean);
-            styleParts.forEach((part) => {
-              const [key, value] = part.split(':').map((str) => str.trim());
-              if (key === 'width') {
-                imageStyle.width = parseInt(value.replace('px', ''), 10);
-              } else if (key === 'height') {
-                imageStyle.height = parseInt(value.replace('px', ''), 10);
-              }
-            });
-          }
-      
-          return (
-            <Image
-              style={imageStyle}
-              source={{
-                uri: src,
-                headers: {
-                  'User-Agent': 'MyMobileApp',
-                },
-              }}
-              onError={(e) => {
-                console.error('Image load error:', e.nativeEvent.error);
-              }}
-              resizeMode="contain" // Ensure the image scales within the container
-            />
-          );
-        },
-      };
-      
-  
-    return (
-      <Modal
-        transparent={true}
-        animationType={'slide'}
-        visible={isShow}
-        onRequestClose={handleOnRequest}
-      >
-        <View style={[style.botton_view, { backgroundColor: 'rgba(0, 0, 0, 0.7)' }]}>
-          <View style={[style.bottom_sheet, { padding: 0, height: '80%' }]}>
-            <TouchableOpacity
-              onPress={onClick}
-              style={{
-                justifyContent: 'flex-end',
-                position: 'absolute',
-                end: 30,
-                top: 20,
-              }}
-            >
-              <Image
-                source={require('../assets/images/close.png')}
-                style={{
-                  height: 24,
-                  width: 24,
-                  tintColor: colorScheme() == 'dark' ? 'white' : 'black',
-                }}
-              />
-            </TouchableOpacity>
-            <ScrollView
-              showsVerticalScrollIndicator={false}
-              style={{ marginTop: 50 }}
-              contentContainerStyle={{ flexGrow: 1 }}
-            >
-              <View style={{ paddingHorizontal: 20 }}>
-                {data ? (
-                  <RenderHtml
-                    contentWidth={width}
-                    tagsStyles={{
-                        ul: {
-                          paddingLeft: 20, // Adds padding to the left of the list
-                          marginVertical: 10,
-                          color: colorScheme() == "dark" ? 'white' : 'black',
-                        },
-                        li: {
-                          marginBottom: 8, // Adds spacing between list items
-                          listStyleType: 'disc',
-                          color: colorScheme() == "dark" ? 'white' : 'black',
-                        },
-                        p: {
-                          margin: 0, // Removes default margin for paragraphs
-                          padding: 0,
-                          textAlign: 'justify', // Aligns text evenly
-                          lineHeight: 22, // Adjust line height for better spacing
-                          wordBreak: 'break-word', // Ensures long words break properly
-                          color: colorScheme() == "dark" ? 'white' : 'black', // Text color based on mode
-                        },
-                      }}
-                      
-                    ignoredDomTags={['elem']}
-                    renderers={renderers}
+            const { src, style } = tnode.attributes;
+
+            // Default styles for responsive images
+            const imageStyle = {
+                maxWidth: '100%', // Full width of the container
+                height: 'auto',   // Maintain aspect ratio
+            };
+
+            if (style) {
+                // Parse inline styles from the `style` attribute
+                const styleParts = style.split(';').filter(Boolean);
+                styleParts.forEach((part) => {
+                    const [key, value] = part.split(':').map((str) => str.trim());
+                    if (key === 'width') {
+                        imageStyle.width = parseInt(value.replace('px', ''), 10);
+                    } else if (key === 'height') {
+                        imageStyle.height = parseInt(value.replace('px', ''), 10);
+                    }
+                });
+            }
+
+            return (
+                <Image
+                    style={imageStyle}
                     source={{
-                      html: cleanedHtml,
+                        uri: src,
+                        headers: {
+                            'User-Agent': 'MyMobileApp',
+                        },
                     }}
-                  />
-                ) : null}
-              </View>
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
+                    onError={(e) => {
+                        console.error('Image load error:', e.nativeEvent.error);
+                    }}
+                    resizeMode="contain" // Ensure the image scales within the container
+                />
+            );
+        },
+    };
+
+
+    return (
+        <Modal
+            transparent={true}
+            animationType={'slide'}
+            visible={isShow}
+            onRequestClose={handleOnRequest}
+        >
+            <View style={[style.botton_view, { backgroundColor: 'rgba(0, 0, 0, 0.7)' }]}>
+                <View style={[style.bottom_sheet, { padding: 0, height: '80%' }]}>
+                    <TouchableOpacity
+                        onPress={onClick}
+                        style={{
+                            justifyContent: 'flex-end',
+                            position: 'absolute',
+                            end: 30,
+                            top: 20,
+                        }}
+                    >
+                        <Image
+                            source={require('../assets/images/close.png')}
+                            style={{
+                                height: 24,
+                                width: 24,
+                                tintColor: colorScheme() == 'dark' ? 'white' : 'black',
+                            }}
+                        />
+                    </TouchableOpacity>
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        style={{ marginTop: 50 }}
+                        contentContainerStyle={{ flexGrow: 1 }}
+                    >
+                        <View style={{ paddingHorizontal: 20 }}>
+                           
+                            {data ? (
+                                <RenderHtml
+                                    contentWidth={width}
+                                    tagsStyles={{
+                                        img: { maxWidth: '100%', height: 'auto' },
+                                        ul: {
+                                            paddingLeft: 20, // Adds padding to the left of the list
+                                            marginVertical: 10,
+                                            color: colorScheme() == "dark" ? 'white' : 'black',
+                                        },
+                                        li: {
+                                            marginBottom: 8, // Adds spacing between list items
+                                            listStyleType: 'disc',
+                                            color: colorScheme() == "dark" ? 'white' : 'black',
+                                        },
+                                        p: {
+                                            margin: 0, // Removes default margin for paragraphs
+                                            padding: 0,
+                                            textAlign: 'justify', // Aligns text evenly
+                                            lineHeight: 22, // Adjust line height for better spacing
+                                            wordBreak: 'break-word', // Ensures long words break properly
+                                            color: colorScheme() == "dark" ? 'white' : 'black', // Text color based on mode
+                                        },
+                                    }}
+
+                                    //ignoredDomTags={['elem']}
+                                    //renderers={renderers}
+                                    source={{
+                                        html: cleanedHtml,
+                                    }}
+                                    renderersProps={{
+                                        img: {
+                                            enableExperimentalPercentWidth: true,
+                                        },
+                                    }}
+                                />
+                            ) : null}
+                        </View>
+                    </ScrollView>
+                </View>
+            </View>
+        </Modal>
     );
-  };
-  
+};
+
 
 
 export const MoreInfoBottomSheet = ({ isShow = false, isTeacherComment, data, onClick }) => {
@@ -444,7 +452,7 @@ export const PlayAudioBottomSheet = ({ isShow = false, itemData, onClick }) => {
         TrackPlayer.reset();
         onClick()
     };
-    console.log("bottom",itemData)
+    console.log("bottom", itemData)
 
     return <Modal transparent={true} animationType={'slide'} visible={isShow} onRequestClose={handleOnRequest} >
         <View style={[style.botton_view]}>
@@ -578,100 +586,100 @@ export const ConfirmationDialog = ({ isShow = false, message = "Something is wro
 
 //New code implemented on December 11, 2024, by Pravin.
 //TextReadMoreBottomSheet reference files button functioanlity
-    export const TextReadMoreBottomSheet = ({ isShow = false, data, navigation, onClick }) => {
-        const style = getStyles();
-        const [player, isPlayer] = useState(false);
-        const [itemData, setItemData] = useState();
-        const [showModal, setShowModal] = useState(isShow)
-        const handleOnRequest = () => {
-            onClick(); // Close modal explicitly when requested
-        };
-        const calculatedHeight = data.length > 1
-    ? screenHeight / 2.4
-    : screenHeight / (1 + 0.2 * data.length);
-console.log("height",calculatedHeight)
+export const TextReadMoreBottomSheet = ({ isShow = false, data, navigation, onClick }) => {
+    const style = getStyles();
+    const [player, isPlayer] = useState(false);
+    const [itemData, setItemData] = useState();
+    const [showModal, setShowModal] = useState(isShow)
+    const handleOnRequest = () => {
+        onClick(); // Close modal explicitly when requested
+    };
+    const calculatedHeight = data.length > 1
+        ? screenHeight / 2.4
+        : screenHeight / (1 + 0.2 * data.length);
+    console.log("height", calculatedHeight)
     // Reset modal visibility on screen focus
     useFocusEffect(
         useCallback(() => {
             setShowModal(isShow); // Sync the initial isShow state
         }, [isShow])
     );
-        const handleNavigation = (route, params) => {
-            setShowModal(false)
-            navigation.navigate(route, params);
-        };
-    
-        return (
-            <Modal
-                transparent={true}
-                animationType="slide"
-                visible={showModal}
-                onRequestClose={handleOnRequest}
-            >
-                <View style={[style.botton_view, { backgroundColor: 'rgba(0, 0,0, .7 )' }]}>
-                    <View style={[style.bottom_sheet, { padding: 0,height: calculatedHeight }]}>
-                        <View style={{ width: '100%' }}>
-                            <Text style={[style.letsPlayText, { marginTop: 20, marginLeft: 18 }]}>
-                                Reference Files
-                            </Text>
-                        </View>
-    
-                        <TouchableOpacity
-                            onPress={() => onClick()}
+    const handleNavigation = (route, params) => {
+        setShowModal(false)
+        navigation.navigate(route, params);
+    };
+
+    return (
+        <Modal
+            transparent={true}
+            animationType="slide"
+            visible={showModal}
+            onRequestClose={handleOnRequest}
+        >
+            <View style={[style.botton_view, { backgroundColor: 'rgba(0, 0,0, .7 )' }]}>
+                <View style={[style.bottom_sheet, { padding: 0, height: calculatedHeight }]}>
+                    <View style={{ width: '100%' }}>
+                        <Text style={[style.letsPlayText, { marginTop: 20, marginLeft: 18 }]}>
+                            Reference Files
+                        </Text>
+                    </View>
+
+                    <TouchableOpacity
+                        onPress={() => onClick()}
+                        style={{
+                            justifyContent: 'flex-end',
+                            position: 'absolute',
+                            end: 30,
+                            top: 20,
+                        }}
+                    >
+                        <Image
+                            source={require('../assets/images/close.png')}
                             style={{
-                                justifyContent: 'flex-end',
-                                position: 'absolute',
-                                end: 30,
-                                top: 20,
+                                height: 24,
+                                width: 24,
+                                tintColor: colorScheme() === 'dark' ? 'white' : 'black',
                             }}
-                        >
-                            <Image
-                                source={require('../assets/images/close.png')}
-                                style={{
-                                    height: 24,
-                                    width: 24,
-                                    tintColor: colorScheme() === 'dark' ? 'white' : 'black',
-                                }}
-                            />
-                        </TouchableOpacity>
-                        <View style={{ paddingHorizontal: 16, marginTop: 10, flex: 1 }}>
+                        />
+                    </TouchableOpacity>
+                    <View style={{ paddingHorizontal: 16, marginTop: 10, flex: 1 }}>
                         <ScrollView>
-              {data.map((item, index) => (
-                <ReferenceFilesInflate
-                  key={index}
-                  item={item}
-                  isShow={false}
-                  onClick={(type) => {
-                    if (type === 1) {
-                      // Handle edit file title (if needed)
-                    } else if (type === 2) {
-                      // Navigate based on file type
-                      if (item.FileType === localEnum.pdf) {
-                        handleNavigation(routes.pdf_view_screen, { url: item.BlobUrl });
-                      } else if (audioExtention(item.FileType)) {
-                        setItemData({ title: item.FileName, uri: item.BlobUrl });
-                        isPlayer(true);
-                      } else if (imageExtention(item.FileType)) {
-                        handleNavigation(routes.image_view_screen, { url: item.BlobUrl });
-                      } else if (videoExtention(item.FileType)) {
-                        handleNavigation(routes.videoPlayerScreen, { url: item.BlobUrl });
-                      } else if (
-                        item.FileType === localEnum.text ||
-                        item.FileType === localEnum.txt
-                      ) {
-                        handleNavigation(routes.text_screen, { url: item.BlobUrl });
-                      } else if (
-                        item.FileType === localEnum.office ||
-                        item.FileType === localEnum.doc ||
-                        item.FileType === localEnum.docx
-                      ) {
-                        handleNavigation(routes.doc_screen, { url: item.BlobUrl });
-                      }
-                    }
-                  }}
-                />
-              ))}
-            </ScrollView>
+                            {data.map((item, index) => (
+                                <ReferenceFilesInflate
+                                    key={index}
+                                    item={item}
+                                    isShow={false}
+                                    onClick={(type) => {
+                                        if (type === 1) {
+                                            // Handle edit file title (if needed)
+                                        } else if (type === 2) {
+                                            // Navigate based on file type
+                                            if (item.FileType === localEnum.pdf) {
+                                                handleNavigation(routes.pdf_view_screen, { url: item.BlobUrl });
+                                            } else if (audioExtention(item.FileType)) {
+                                                setItemData({ title: item.FileName, uri: item.BlobUrl });
+                                                isPlayer(true);
+                                            } else if (imageExtention(item.FileType)) {
+                                                handleNavigation(routes.image_view_screen, { url: item.BlobUrl });
+                                            } else if (videoExtention(item.FileType)) {
+                                                handleNavigation(routes.videoPlayerScreen, { url: item.BlobUrl });
+                                            } else if (
+                                                item.FileType === localEnum.text ||
+                                                item.FileType === localEnum.txt
+                                            ) {
+                                                handleNavigation(routes.text_screen, { url: item.BlobUrl });
+                                            } else if (
+                                                item.FileType === localEnum.office ||
+                                                item.FileType === localEnum.doc ||
+                                                item.FileType === localEnum.docx
+                                            ) {
+                                                handleNavigation(routes.doc_screen, { url: item.BlobUrl });
+                                            }
+                                        }
+                                    }}
+                                />
+                            ))}
+                        </ScrollView>
                     </View>
                     {player && (
                         <AudioPlay
@@ -681,8 +689,8 @@ console.log("height",calculatedHeight)
                         />
                     )}
                 </View>
-                </View>
-            </Modal>
-        );
-    };
-    
+            </View>
+        </Modal>
+    );
+};
+

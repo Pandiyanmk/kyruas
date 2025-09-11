@@ -121,7 +121,7 @@ let userName;
         <Text style={[style.textStyle, style.absulates, {
             fontFamily: 'Roboto',
             fontSize: 12, width: '100%', textAlign: 'center'
-        }]}>{"Version: " + DeviceInfo.getVersion()+"\nPowered by banyanPro"}</Text>
+        }]}>{"Version: " + DeviceInfo.getVersion()+"\nPowered by BanyanPro"}</Text>
 
     </View>
 }
