@@ -232,44 +232,24 @@ export const ReadMoreBottomSheet = ({ isShow = false, data, onClick }) => {
     console.log("cleanedHtmlup", cleanedHtml)
 
 
+
+    const CustomImage = ({ src }) => (
+        <Image
+            source={{
+                uri: src,
+                headers: {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0 Safari/537.36",
+                },
+            }}
+            style={{ width: 300, height: 200 }}
+            resizeMode="contain"
+        />
+    );
+
     const renderers = {
         img: ({ tnode }) => {
-            const { src, style } = tnode.attributes;
-
-            // Default styles for responsive images
-            const imageStyle = {
-                maxWidth: '100%', // Full width of the container
-                height: 'auto',   // Maintain aspect ratio
-            };
-
-            if (style) {
-                // Parse inline styles from the `style` attribute
-                const styleParts = style.split(';').filter(Boolean);
-                styleParts.forEach((part) => {
-                    const [key, value] = part.split(':').map((str) => str.trim());
-                    if (key === 'width') {
-                        imageStyle.width = parseInt(value.replace('px', ''), 10);
-                    } else if (key === 'height') {
-                        imageStyle.height = parseInt(value.replace('px', ''), 10);
-                    }
-                });
-            }
-
-            return (
-                <Image
-                    style={imageStyle}
-                    source={{
-                        uri: src,
-                        headers: {
-                            'User-Agent': 'MyMobileApp',
-                        },
-                    }}
-                    onError={(e) => {
-                        console.error('Image load error:', e.nativeEvent.error);
-                    }}
-                    resizeMode="contain" // Ensure the image scales within the container
-                />
-            );
+            const { src } = tnode.attributes;
+            return <CustomImage src={src} />;
         },
     };
 
@@ -307,7 +287,6 @@ export const ReadMoreBottomSheet = ({ isShow = false, data, onClick }) => {
                         contentContainerStyle={{ flexGrow: 1 }}
                     >
                         <View style={{ paddingHorizontal: 20 }}>
-                           
                             {data ? (
                                 <RenderHtml
                                     contentWidth={width}
@@ -333,15 +312,10 @@ export const ReadMoreBottomSheet = ({ isShow = false, data, onClick }) => {
                                         },
                                     }}
 
-                                    //ignoredDomTags={['elem']}
-                                    //renderers={renderers}
+                                    // ignoredDomTags={['elem']}
+                                    renderers={renderers}
                                     source={{
                                         html: cleanedHtml,
-                                    }}
-                                    renderersProps={{
-                                        img: {
-                                            enableExperimentalPercentWidth: true,
-                                        },
                                     }}
                                 />
                             ) : null}

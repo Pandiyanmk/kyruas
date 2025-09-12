@@ -90,7 +90,7 @@ export const ResetPasswordScreen = ({ navigation, route }) => {
     
     return <View style={[style.viewBox]}>
         {/* <Text style={[style.appNameStyle, style.fullWidthWithCenter, { marginTop: 20 }]}>{strings.appName}</Text> */}
-        <Image source={require('../../assets/images/newbanyan-pro.png')} style={style.imageStyle}  />
+        <Image source={require('../../assets/images/itmslogoss.png')} style={style.imageStyle}  />
         <Text style={[style.appNameStyle, style.for18, {
             marginTop: 30,
             width: '100%', textAlign: 'center'

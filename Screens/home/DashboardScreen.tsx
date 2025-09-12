@@ -285,8 +285,8 @@ export const DashItemWithHorizontalList = ({ items, onClick }) => {
     }, [theme])
 
 
-    return <View style={{ paddingHorizontal: 16, flex: 1 }}>
-        <View style={{ flex: 1 }}>
+    return <View style={{ paddingHorizontal: 16 }}>
+        <View style={{}}>
             <TitleWithForward title={items.title} isForward={items.list.length > 2} onClick={() => {
                 onClick(1, items)
 

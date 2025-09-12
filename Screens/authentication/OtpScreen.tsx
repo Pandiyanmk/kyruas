@@ -150,7 +150,7 @@ export const OTPScreen = ({ navigation, route }) => {
     return (
         <ScrollView contentContainerStyle={{flex:1}} showsVerticalScrollIndicator={false}><View style={style.viewBox}>
             {/* <Text style={[style.appNameStyle, style.fullWidthWithCenter, { marginTop: 40 }]}>{strings.appName}</Text> */}
-             <Image source={require('../../assets/images/newbanyan-pro.png')} style={style.imageStyle}  />
+             <Image source={require('../../assets/images/itmslogoss.png')} style={style.imageStyle}  />
             <Text style={[style.textStyle, {
                 marginTop: 60, marginBottom: 40,
                 width: '100%', textAlign: 'center', fontFamily: 'Roboto Medium'

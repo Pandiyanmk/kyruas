@@ -235,7 +235,7 @@ const handleRadioPress = (index, aliasId,email,roleid) => {
    
     return <View style={[style.viewBox]}>
        <View style={[style.appNameStyle, style.fullWidthWithCenter, { marginTop: 30 }]}>
-                <Image source={require('../../assets/images/newbanyan-pro.png')} style={style.imageStyle}  />
+                <Image source={require('../../assets/images/itmslogoss.png')} style={style.imageStyle}  />
                 </View>
         <Text style={[style.appNameStyle, style.for18, {
             marginTop: 30,
