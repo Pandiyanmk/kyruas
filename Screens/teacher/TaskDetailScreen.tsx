@@ -586,7 +586,11 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                                 placeholder={strings.type_a_score}
                                 value={score}
                                 onChangeText={(text: string) => {
-                                    setScore(text);
+                                    const regex = /^\d*\.?\d{0,2}$/;
+                                    if (regex.test(text)) {
+                                        setScore(text);
+                                    }
+
                                     setError({
                                         ...error,
                                         errorScore: "",
@@ -603,7 +607,11 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                                 placeholder={strings.type_a_score}
                                 value={ReadingScore}
                                 onChangeText={(text: string) => {
-                                    setReadingScore(text);
+                                    const regex = /^\d*\.?\d{0,2}$/;
+                                    if (regex.test(text)) {
+                                        setReadingScore(text);
+                                    }
+
                                     // setError({ errorComment: "", erroScore: "" });
                                     // Clear the error message when user starts typing
                                     if (error.errorReading) {
@@ -628,7 +636,11 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                                 placeholder={strings.type_a_score}
                                 value={ConversationScore}
                                 onChangeText={(text: string) => {
-                                    setConversationScore(text);
+                                    const regex = /^\d*\.?\d{0,2}$/;
+                                    if (regex.test(text)) {
+                                        setConversationScore(text);
+                                    }
+
                                     //setconError({ errorconComment: "", errocon: "" })
                                     if (error.errorConversation) {
                                         setError(prevError => ({ ...prevError, errorConversation: "" }));
@@ -646,7 +658,11 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                                 placeholder={strings.type_a_score}
                                 value={WrittenScore}
                                 onChangeText={(text: string) => {
-                                    setWrittenScore(text);
+                                    const regex = /^\d*\.?\d{0,2}$/;
+                                    if (regex.test(text)) {
+                                        setWrittenScore(text);
+                                    }
+
                                     if (error.errorWritten) {
                                         setError(prevError => ({ ...prevError, errorWritten: "" }));
                                     }
@@ -663,7 +679,11 @@ export const TaskDetailScreen = ({ navigation, route }) => {
                                 placeholder={strings.type_a_score}
                                 value={projectScore}
                                 onChangeText={(text: string) => {
-                                    setProjectScore(text);
+                                    const regex = /^\d*\.?\d{0,2}$/;
+                                    if (regex.test(text)) {
+                                        setProjectScore(text);
+                                    }
+
                                     if (error.errorProjectScore) {
                                         setError(prevError => ({ ...prevError, errorProjectScore: "" }));
                                     }

@@ -58,6 +58,7 @@ import { useSelector } from 'react-redux';
 //TextWithReference
 // import { TeacherComments } from "../../Components/GameItem"
 import { Buffer } from 'buffer';
+import { Video } from "react-native-compressor";
 // Class representing a file modal with properties like title, type, URI, and base64 data
 export class FileModal {
     constructor(
@@ -147,7 +148,6 @@ export const StudentHomeWorkScreen = ({ navigation, route }) => {
      * Function to upload a file
      */
     const callUploadFile = (file: FileModal) => {
-
         if (data && data.data) {
             if (data.data.NoofUplodableFiles == itemList.length) {
                 Alert.alert("Message", `You have uploaded the maximum ${data.data.NoofUplodableFiles} number of files`)
@@ -247,6 +247,34 @@ export const StudentHomeWorkScreen = ({ navigation, route }) => {
     }
 
 
+    const compressVideo = async (model: { uri: string | null | undefined }, modle: FileModal) => {
+        if (!model.uri) {
+            console.warn('Video URI is null or undefined');
+            Alert.alert('Error', 'Video file URI is missing.');
+            return null;
+        }
+        try {
+            setDialogLoading(true)
+            const compressedPath = await Video.compress(
+                model.uri,   // your file path
+                { compressionMethod: 'auto' },
+                progress => {
+                    console.log('Compression progress:', progress); // 0 → 1
+                }
+            );
+
+            console.log('Compressed video path:', compressedPath);
+            modle.uri = compressedPath;
+            setDialogLoading(false)
+            callUploadFile(modle)
+        } catch (error) {
+            setDialogLoading(false)
+            console.error('Video compression error:', error);
+            Alert.alert(JSON.stringify(error))
+            return null;
+        }
+    };
+
     /**
      * Handle response from camera, gallery, and PDF selection
      * @param type Type of response (success, failure, PDF)
@@ -255,11 +283,20 @@ export const StudentHomeWorkScreen = ({ navigation, route }) => {
     const responseHandling = (type: any, response: any) => {
         console.log("filestype", type)
         if (type == localEnum.sucess) {
+            const isVideo = response.type?.includes(localEnum.videoType);
             const modle = new FileModal(response.fileName.split(' ').join(' '),
 
                 response.type.includes(localEnum.videoType) ? localEnum.video : localEnum.image,
                 response.uri, `data:${response.type};base64,` + response)
-            callUploadFile(modle)
+            if (isVideo && modle.uri) {
+                compressVideo({ uri: modle.uri }, modle);  // ✅ pass as object
+
+            } else if (isVideo) {
+                Alert.alert('Video file URI is missing!');
+            }  else {
+                callUploadFile(modle)
+            }
+
         } else if (type == localEnum.pdf) {
             const types = data.data.AcceptableFileType.split(",")
             if (!types.includes(type)) {
@@ -507,7 +544,7 @@ export const StudentHomeWorkScreen = ({ navigation, route }) => {
             ref={scrollRef}
             onContentSizeChange={(contentWidth, contentHeight) => { scrollRef.current.scrollToEnd({ animated: true }) }}
             style={{ marginBottom: itemList.length > 0 ? 180 : 150, backgroundColor: colorScheme() == "dark" ? colors.black : colors.white }}
-            >
+        >
             <View style={[style.viewBox, { padding: 0 }]}>
                 <Text style={[style.letsPlayText, { marginTop: 20, marginHorizontal: 16 }]}>{strings.homework}</Text>
                 <View style={[style.enrolledBckground, { alignContent: "center", justifyContent: "flex-start", marginHorizontal: 16, marginTop: 10 }]}>
